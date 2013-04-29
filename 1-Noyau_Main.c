@@ -40,28 +40,11 @@ void OS_Main() {
 	Inititialisation_8259A();
 	Affiche_Message(">>>Initialisation du pic 8259A : ", "OK");
 
-	Initialisation_8253(200);
+	Initialisation_8253(1000);
 	Affiche_Message(">>>Initialisation du pic 8253 : ", "OK");
 	AUTORISE_INTERRUPTION;
 
 	while (1);
-	/*while (1) {
-
-		int i = 0;
-		long boucle = 5000000L;
-
-		Affiche_Alien_1(VERT);
-		for (i = 0; i < boucle; i++) {
-			asm("NOP");
-		}
-
-
-		Affiche_Alien_2(VERT);
-		for (i = 0; i < boucle / 2; i++) {
-			asm("NOP");
-		}
-
-	}*/
 }
 
 void OS_Start(T_BOOT_INFO* P_Info) {
