@@ -39,17 +39,17 @@ void CallBack_IRQ0()
 
 }
 //------------------------------------------------------------------------------
-void CallBack_IRQ1()
-{
- UINT16 L_Touche;
+void CallBack_IRQ1() {
+	Regle_Couleur(BLANC);
+	UINT16 L_Touche;
 
    INITIALISER_DS(SELECTEUR_DATA_NOYAU);
 //  Affiche_Chaine("IRQ1\n");
 
  L_Touche=Lecture_Scan_Code();
 
- Affiche_Chaine(Entier_Vers_Chaine(L_Touche));
- Affiche_Caractere(' ');
+	if (convert_keyboard(L_Touche) != '\0')
+		Affiche_Caractere(convert_keyboard(L_Touche));
 
 }
 //------------------------------------------------------------------------------
