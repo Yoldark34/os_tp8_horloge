@@ -10,6 +10,7 @@
 #include "Outils.h"
 #include "convert_keyboard.h"
 #include "PIC_8259A.h"
+#include "HARD_8253_Timer.h"
 
 void Affiche_Message(UCHAR* P_Message, UCHAR* P_Etat) {
 	Regle_Couleur(BLANC);
@@ -38,6 +39,9 @@ void OS_Main() {
 
 	Inititialisation_8259A();
 	Affiche_Message(">>>Initialisation du pic 8259A : ", "OK");
+
+	Initialisation_8253(200);
+	Affiche_Message(">>>Initialisation du pic 8253 : ", "OK");
 	AUTORISE_INTERRUPTION;
 
 	while (1);
